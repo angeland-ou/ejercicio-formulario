@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <section class="result"> 
+    <h1>Resumen de datos</h1>
+        <ul>
+            <li>Tu nombre es: <%= nombre %>.</li>
+            <li>
+                <% if (edad !== undefined && edad !== null) { %>
+                    Tu edad es <%= edad %>.
+                <% } else { %>
+                    No indicaste edad.
+                <% } %>
+            </li>
+                <% if (edad !== undefined && edad !== null && edad < 18) { %>
+                    <li><span style="color: orange !important;">Eres menor de edad.</span></li>
+                <% } %>
+                <% if (edad !== undefined && edad !== null && edad >= 18) { %>
+                    <li><span style="color: green !important;">Eres mayor de edad.</span></li>
+                <% } %>
+            <li>Vives en <%= ciudad %></li>
+            <li><% if (intereses !== undefined && intereses.length > 0) { %>
+                    Tus intereses son: 
+                    <ul>
+                    <% for (let i = 0; i < intereses.length; i++) { %>
+                        <li><%= intereses[i] %></li>
+                    <% } %>
+                    </ul>
+                <% } else { %>
+                    Sin intereses seleccionados.
+                <% } %>
+                </li>
+        </ul>
+    </section>
+</body>
+</html>
