@@ -11,20 +11,18 @@
         <ul>
             <li>Tu nombre es: <%= nombre %>.</li>
             <li>
-                <% if (edad !== undefined && edad !== null) { %>
+                <% if (edad) { %>
                     Tu edad es <%= edad %>.
+            </li><% if (Number(edad) < 18) { %>
+                        <li><span style="color: orange !important;">Eres menor de edad.</span></li>
+                    <% } else { %>
+                        <li><span style="color: green !important;">Eres mayor de edad.</span></li>
+                    <% } %>
                 <% } else { %>
                     No indicaste edad.
                 <% } %>
-            </li>
-                <% if (edad !== undefined && edad !== null && edad < 18) { %>
-                    <li><span style="color: orange !important;">Eres menor de edad.</span></li>
-                <% } %>
-                <% if (edad !== undefined && edad !== null && edad >= 18) { %>
-                    <li><span style="color: green !important;">Eres mayor de edad.</span></li>
-                <% } %>
             <li>Vives en <%= ciudad %></li>
-            <li><% if (intereses !== undefined && intereses.length > 0) { %>
+            <li><% if (intereses && intereses.length) { %>
                     Tus intereses son: 
                     <ul>
                     <% for (let i = 0; i < intereses.length; i++) { %>
@@ -34,8 +32,10 @@
                 <% } else { %>
                     Sin intereses seleccionados.
                 <% } %>
-                </li>
+            </li>
         </ul>
+        <p><a href="/form">Volver al formulario</a></p>
+        <p><a href="/">Inicio</a></p>
     </section>
 </body>
 </html>
